@@ -563,7 +563,7 @@ export default function Home() {
           const lenis = new window.Lenis()
           // @ts-ignore
           window.lenis = lenis
-          function raf(time: number) {
+          const raf = (time: number) => {
             lenis.raf(time)
             requestAnimationFrame(raf)
           }
