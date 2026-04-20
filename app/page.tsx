@@ -83,83 +83,83 @@ const MENU_DATA: Record<string, Record<string, { col1: any[], col2: any[] }>> = 
         { name: 'USDA Prime Tenderloin', price: '68', desc: 'Prime tenderloin grilled to order, served with seasonal vegetables and your choice of sauce.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img: '/steak.png' },
         { name: 'Italian Braciola', price: '60', desc: 'Tender beef rolls filled with cheese, herbs and prosciutto, slow-cooked in rich tomato sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#2c3e2c 100%)', img: '/italian_braciola.png' },
         { name: 'Herb-Roasted Chicken', price: '52', desc: 'Free-range chicken marinated in fresh herbs, oven-roasted to golden perfection with garlic potatoes.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)', img: '/garlic_chicken.png' },
-        { name: 'Rack of Lamb', price: '72', desc: 'Herb-crusted lamb rack with mint jus, roasted root vegetables and creamy mashed potato.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)' },
+        { name: 'Rack of Lamb', price: '72', desc: 'Herb-crusted lamb rack with mint jus, roasted root vegetables and creamy mashed potato.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)', img: '/rack_of_lamb.jpg' },
       ],
       col2: [
-        { name: 'Teriyaki Glazed Beef', price: '60', desc: 'Beef marinated in teriyaki sauce, grilled to perfection and served with steamed rice and greens.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2e3e2e 100%)', img: '/steak.png' },
-        { name: 'Pan-Seared Sea Bass', price: '58', desc: 'Delicate sea bass fillet with crispy skin, lemon beurre blanc and asparagus.', bg: 'linear-gradient(145deg,#382618 0%,#304030 100%)' },
-        { name: 'Duck Confit', price: '64', desc: 'Slow-cooked duck leg with crispy skin, cherry reduction and roasted fingerling potatoes.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)' },
-        { name: 'Seafood Linguine', price: '55', desc: 'Al dente linguine with fresh prawns, scallops and clams in a white wine and garlic sauce.', bg: 'linear-gradient(145deg,#402818 0%,#384535 100%)' },
+        { name: 'Teriyaki Glazed Beef', price: '60', desc: 'Beef marinated in teriyaki sauce, grilled to perfection and served with steamed rice and greens.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2e3e2e 100%)', img: '/teriyaki_glazed_beef.jpg' },
+        { name: 'Pan-Seared Sea Bass', price: '58', desc: 'Delicate sea bass fillet with crispy skin, lemon beurre blanc and asparagus.', bg: 'linear-gradient(145deg,#382618 0%,#304030 100%)', img: '/pan-seared_sea_bass.jpg' },
+        { name: 'Duck Confit', price: '64', desc: 'Slow-cooked duck leg with crispy skin, cherry reduction and roasted fingerling potatoes.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)', img: '/duck_confit.jpg' },
+        { name: 'Seafood Linguine', price: '55', desc: 'Al dente linguine with fresh prawns, scallops and clams in a white wine and garlic sauce.', bg: 'linear-gradient(145deg,#402818 0%,#384535 100%)', img: '/seafood_linguine.jpg' },
       ]
     },
     'Breakfast Set': {
       col1: [
-        { name: 'Eggs Benedict', price: '22', desc: 'Poached eggs on toasted English muffins with Canadian bacon and silky hollandaise sauce.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'French Toast', price: '18', desc: 'Thick-cut brioche soaked in vanilla custard, golden-fried with fresh berries and maple syrup.', bg: 'linear-gradient(145deg,#40301c 0%,#304030 100%)', img: '/dessert.png' },
-        { name: 'Granola Bowl', price: '16', desc: 'House granola with Greek yogurt, seasonal fruits, honey and a sprinkle of toasted seeds.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2c3e2c 100%)' },
-        { name: 'Smoked Salmon Bagel', price: '24', desc: 'Toasted bagel with cream cheese, smoked Norwegian salmon, capers, red onion and dill.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)' },
+        { name: 'Eggs Benedict', price: '22', desc: 'Poached eggs on toasted English muffins with Canadian bacon and silky hollandaise sauce.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/eggs_benedict.jpg' },
+        { name: 'French Toast', price: '18', desc: 'Thick-cut brioche soaked in vanilla custard, golden-fried with fresh berries and maple syrup.', bg: 'linear-gradient(145deg,#40301c 0%,#304030 100%)', img: '/french_toast.jpg' },
+        { name: 'Granola Bowl', price: '16', desc: 'House granola with Greek yogurt, seasonal fruits, honey and a sprinkle of toasted seeds.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2c3e2c 100%)', img: '/granola_bowl_gourmet_1776678692929.png' },
+        { name: 'Smoked Salmon Bagel', price: '24', desc: 'Toasted bagel with cream cheese, smoked Norwegian salmon, capers, red onion and dill.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)', img: '/smoked_salmon_bagel.jpg' },
       ],
       col2: [
-        { name: 'Avocado Toast', price: '20', desc: 'Sourdough toast with smashed avocado, cherry tomatoes, poached egg and chilli flakes.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
-        { name: 'Full English Breakfast', price: '28', desc: 'Bacon, sausages, eggs your way, grilled tomato, mushrooms, baked beans and buttered toast.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)', img: '/chicken.png' },
-        { name: 'Acai Bowl', price: '18', desc: 'Blended acai with banana and almond milk, topped with granola, coconut flakes and seasonal fruits.', bg: 'linear-gradient(145deg,#2e3828 0%,#2a3c28 100%)' },
-        { name: 'Croissant & Jam', price: '14', desc: 'Buttery all-butter croissant served warm with house-made seasonal jam and Normandy butter.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)' },
+        { name: 'Avocado Toast', price: '20', desc: 'Sourdough toast with smashed avocado, cherry tomatoes, poached egg and chilli flakes.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/avocado_toast.jpg' },
+        { name: 'Full English Breakfast', price: '28', desc: 'Bacon, sausages, eggs your way, grilled tomato, mushrooms, baked beans and buttered toast.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)', img: '/full_english_premium_1776678676825.png' },
+        { name: 'Acai Bowl', price: '18', desc: 'Blended acai with banana and almond milk, topped with granola, coconut flakes and seasonal fruits.', bg: 'linear-gradient(145deg,#2e3828 0%,#2a3c28 100%)', img: '/acai_bowl_premium_vibrant_1776678707914.png' },
+        { name: 'Croissant & Jam', price: '14', desc: 'Buttery all-butter croissant served warm with house-made seasonal jam and Normandy butter.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/croissant_and_jam.jpg' },
       ]
     },
     'Brunch': {
       col1: [
-        { name: 'Truffle Scrambled Eggs', price: '32', desc: 'Slow-cooked silky scrambled eggs finished with black truffle shavings on sourdough toast.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)' },
-        { name: 'Shakshuka', price: '26', desc: 'Eggs poached in spiced tomato and pepper sauce with feta, olives and warm pita bread.', bg: 'linear-gradient(145deg,#40301c 0%,#42301e 100%)' },
+        { name: 'Truffle Scrambled Eggs', price: '32', desc: 'Slow-cooked silky scrambled eggs finished with black truffle shavings on sourdough toast.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img:  '/truffle_scrambled_eggs.jpg' },
+        { name: 'Shakshuka', price: '26', desc: 'Eggs poached in spiced tomato and pepper sauce with feta, olives and warm pita bread.', bg: 'linear-gradient(145deg,#40301c 0%,#42301e 100%)', img: '/shakshuka.jpg' },
         { name: 'Buttermilk Pancakes', price: '22', desc: 'Fluffy stack of buttermilk pancakes with whipped butter, blueberries and warm maple syrup.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)', img: '/dessert.png' },
-        { name: 'Croque Madame', price: '28', desc: 'Toasted ham and Gruyère sandwich topped with béchamel and a sunny-side-up egg.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Croque Madame', price: '28', desc: 'Toasted ham and Gruyère sandwich topped with béchamel and a sunny-side-up egg.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/croque_madame.jpg' },
       ],
       col2: [
         { name: 'Belgian Waffles', price: '24', desc: 'Crispy golden waffles with whipped cream, fresh strawberries and house-made berry compote.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/dessert.png' },
-        { name: 'Eggs Royale', price: '34', desc: 'Poached eggs and smoked salmon on toasted muffins with hollandaise and dill oil.', bg: 'linear-gradient(145deg,#382618 0%,#2c3e2c 100%)' },
-        { name: 'Quiche Lorraine', price: '26', desc: 'Classic quiche with smoked bacon and Gruyère in a buttery shortcrust pastry, served with salad.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)' },
-        { name: 'Wild Mushroom Toast', price: '22', desc: 'Wild mushrooms sautéed in garlic butter on sourdough with truffle oil and micro herbs.', bg: 'linear-gradient(145deg,#402818 0%,#3c2a18 100%)' },
+        { name: 'Eggs Royale', price: '34', desc: 'Poached eggs and smoked salmon on toasted muffins with hollandaise and dill oil.', bg: 'linear-gradient(145deg,#382618 0%,#2c3e2c 100%)', img: '/eggs_royale.jpg' },
+        { name: 'Quiche Lorraine', price: '26', desc: 'Classic quiche with smoked bacon and Gruyère in a buttery shortcrust pastry, served with salad.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/quiche_lorraine.jpg' },
+        { name: 'Wild Mushroom Toast', price: '22', desc: 'Wild mushrooms sautéed in garlic butter on sourdough with truffle oil and micro herbs.', bg: 'linear-gradient(145deg,#402818 0%,#3c2a18 100%)', img: '/wild_mushroom_toast.jpg' },
       ]
     },
     'Lunch Set': {
       col1: [
-        { name: 'Caesar Salad', price: '26', desc: 'Crisp romaine with house Caesar dressing, parmesan shavings, croutons and anchovies.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
+        { name: 'Caesar Salad', price: '26', desc: 'Crisp romaine with house Caesar dressing, parmesan shavings, croutons and anchovies.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/caesar_salad.jpg' },
         { name: 'Club Sandwich', price: '28', desc: 'Triple-decker with chicken, bacon, egg, lettuce and tomato on toasted bread with fries.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/chicken.png' },
-        { name: 'French Onion Soup', price: '22', desc: 'Rich caramelised onion soup topped with a gruyère crouton, simmered in beef broth.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)' },
-        { name: 'Pasta Primavera', price: '32', desc: 'Penne with seasonal vegetables and cherry tomatoes in a light olive oil and garlic sauce.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)' },
+        { name: 'French Onion Soup', price: '22', desc: 'Rich caramelised onion soup topped with a gruyère crouton, simmered in beef broth.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)', img: '/french_onion_soup.jpg' },
+        { name: 'Pasta Primavera', price: '32', desc: 'Penne with seasonal vegetables and cherry tomatoes in a light olive oil and garlic sauce.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)', img: '/pasta_primavera.jpg' },
       ],
       col2: [
         { name: 'Grilled Chicken Set', price: '34', desc: 'Herb-marinated chicken breast with roasted potatoes, seasonal greens and pan jus.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/garlic_chicken.png' },
-        { name: 'Fish & Chips', price: '30', desc: 'Beer-battered cod with thick-cut chips, mushy peas and house tartar sauce.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)' },
-        { name: 'Wagyu Beef Burger', price: '42', desc: 'Wagyu patty with caramelised onions, truffle mayo and aged cheddar in a brioche bun.', bg: 'linear-gradient(145deg,#2e3828 0%,#3c2a18 100%)', img: '/steak.png' },
-        { name: 'Wild Mushroom Risotto', price: '36', desc: 'Creamy arborio rice with wild mushrooms, white truffle oil and aged parmesan.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/risotto.png' },
+        { name: 'Fish & Chips', price: '30', desc: 'Beer-battered cod with thick-cut chips, mushy peas and house tartar sauce.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)', img: '/fish_and_chips.jpg' },
+        { name: 'Wagyu Beef Burger', price: '42', desc: 'Wagyu patty with caramelised onions, truffle mayo and aged cheddar in a brioche bun.', bg: 'linear-gradient(145deg,#2e3828 0%,#3c2a18 100%)', img: '/rack_of_lamb.jpg' },
+        { name: 'Wild Mushroom Risotto', price: '36', desc: 'Creamy arborio rice with wild mushrooms, white truffle oil and aged parmesan.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/chicken.png' },
       ]
     },
     'Pizza': {
       col1: [
-        { name: 'Margherita', price: '22', desc: 'Classic Neapolitan pizza with San Marzano tomatoes, buffalo mozzarella and fresh basil.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)' },
-        { name: 'Truffle Mushroom', price: '32', desc: 'Wild mushrooms, taleggio, truffle oil and rosemary on a crispy thin-crust base.', bg: 'linear-gradient(145deg,#40301c 0%,#2a3c28 100%)', img: '/risotto.png' },
-        { name: 'Quattro Formaggi', price: '28', desc: 'Four-cheese blend of mozzarella, gorgonzola, parmesan and taleggio with walnut and honey.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)' },
-        { name: 'Prosciutto & Rocket', price: '30', desc: 'San Daniele prosciutto, fior di latte and rocket with parmesan shavings and balsamic glaze.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Margherita', price: '22', desc: 'Classic Neapolitan pizza with San Marzano tomatoes, buffalo mozzarella and fresh basil.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img: '/margherita.jpg' },
+        { name: 'Truffle Mushroom', price: '32', desc: 'Wild mushrooms, taleggio, truffle oil and rosemary on a crispy thin-crust base.', bg: 'linear-gradient(145deg,#40301c 0%,#2a3c28 100%)', img: '/wild_mushroom_toast.jpg' },
+        { name: 'Quattro Formaggi', price: '28', desc: 'Four-cheese blend of mozzarella, gorgonzola, parmesan and taleggio with walnut and honey.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)', img: '/quattro_formaggi.jpg' },
+        { name: 'Prosciutto & Rocket', price: '30', desc: 'San Daniele prosciutto, fior di latte and rocket with parmesan shavings and balsamic glaze.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/prosciutto_and_rocket.jpg' },
       ],
       col2: [
-        { name: 'Diavola', price: '26', desc: 'Spicy Calabrian salami, mozzarella, chilli oil and fresh basil on a tomato base.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
-        { name: 'Capricciosa', price: '28', desc: 'Ham, mushrooms, artichoke hearts and olives with mozzarella and tomato sauce.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)' },
-        { name: 'Seafood Pizza', price: '34', desc: 'Prawns, scallops and calamari with mozzarella, cherry tomatoes and herb oil.', bg: 'linear-gradient(145deg,#2e3828 0%,#2c3e2c 100%)' },
-        { name: 'Wild Mushroom & Egg', price: '26', desc: 'Forest mushrooms, truffle cream, mozzarella and a cracked egg finished with chives.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)' },
+        { name: 'Diavola', price: '26', desc: 'Spicy Calabrian salami, mozzarella, chilli oil and fresh basil on a tomato base.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/diavola.jpg' },
+        { name: 'Capricciosa', price: '28', desc: 'Ham, mushrooms, artichoke hearts and olives with mozzarella and tomato sauce.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)', img: '/capricciosa.jpg' },
+        { name: 'Seafood Pizza', price: '34', desc: 'Prawns, scallops and calamari with mozzarella, cherry tomatoes and herb oil.', bg: 'linear-gradient(145deg,#2e3828 0%,#2c3e2c 100%)', img: '/seafood_pizza.jpg' },
+        { name: 'Wild Mushroom & Egg', price: '26', desc: 'Forest mushrooms, truffle cream, mozzarella and a cracked egg finished with chives.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/wild_mushroom_and_egg.jpg' },
       ]
     },
     'Drinks & Vines': {
       col1: [
-        { name: 'Barolo 2019', price: '28', desc: 'Full-bodied Italian red from Piedmont with notes of cherry, tar and dried roses.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'Sauvignon Blanc', price: '18', desc: 'Crisp New Zealand white with vibrant citrus and tropical fruit notes, perfect with seafood.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Champagne Brut', price: '24', desc: 'Elegant French champagne with fine bubbles, notes of green apple, brioche and toasted almond.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)' },
-        { name: 'Aperol Spritz', price: '16', desc: 'Refreshing blend of Aperol, Prosecco and soda with a slice of orange.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Barolo 2019', price: '28', desc: 'Full-bodied Italian red from Piedmont with notes of cherry, tar and dried roses.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/barolo_2019.jpg' },
+        { name: 'Sauvignon Blanc', price: '18', desc: 'Crisp New Zealand white with vibrant citrus and tropical fruit notes, perfect with seafood.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/sauvignon_blanc.jpg' },
+        { name: 'Champagne Brut', price: '24', desc: 'Elegant French champagne with fine bubbles, notes of green apple, brioche and toasted almond.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)', img: '/champagne_brut.jpg' },
+        { name: 'Aperol Spritz', price: '16', desc: 'Refreshing blend of Aperol, Prosecco and soda with a slice of orange.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/sauvignon_blanc.jpg' },
       ],
       col2: [
-        { name: 'Negroni', price: '18', desc: 'Classic Italian cocktail of equal parts gin, Campari and sweet vermouth with an orange twist.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
-        { name: 'Old Fashioned', price: '20', desc: 'Bourbon stirred with sugar, aromatic bitters and a touch of orange peel.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)' },
-        { name: 'Craft Beer', price: '14', desc: 'Rotating selection of local and international craft beers on tap. Ask your server.', bg: 'linear-gradient(145deg,#2e3828 0%,#384535 100%)' },
-        { name: 'Signature Mocktail', price: '12', desc: 'House blend of seasonal fruits, herbs and sparkling water — ask your server for today\'s creation.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)' },
+        { name: 'Negroni', price: '18', desc: 'Classic Italian cocktail of equal parts gin, Campari and sweet vermouth with an orange twist.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/negroni.jpg' },
+        { name: 'Old Fashioned', price: '20', desc: 'Bourbon stirred with sugar, aromatic bitters and a touch of orange peel.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)', img: '/barolo_2019.jpg' },
+        { name: 'Craft Beer', price: '14', desc: 'Rotating selection of local and international craft beers on tap. Ask your server.', bg: 'linear-gradient(145deg,#2e3828 0%,#384535 100%)', img: '/craft_beer.jpg' },
+        { name: 'Signature Mocktail', price: '12', desc: 'House blend of seasonal fruits, herbs and sparkling water — ask your server for today\'s creation.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)', img: '/Negroni.jpg' },
       ]
     },
   },
@@ -172,80 +172,80 @@ const MENU_DATA: Record<string, Record<string, { col1: any[], col2: any[] }>> = 
         { name: 'Laksa Local', price: '16', desc: 'Rich and spicy coconut noodle soup with fresh prawns, fish cake and cockles.', bg: 'linear-gradient(145deg,#402818 0%,#2c3e2c 100%)', img: '/laksa.png' },
       ],
       col2: [
-        { name: 'Char Kway Teow', price: '15', desc: 'Wok-fried flat noodles with cockles, Chinese sausage, dark soy and a touch of chilli.', bg: 'linear-gradient(145deg,#382618 0%,#304030 100%)' },
-        { name: 'Nasi Lemak', price: '14', desc: 'Coconut rice with crispy ikan bilis, roasted peanuts, boiled egg, cucumber and sambal chilli.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)' },
-        { name: 'Bak Kut Teh', price: '18', desc: 'Tender pork ribs simmered in a fragrant herbal broth, served with you tiao and steamed rice.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
-        { name: 'Hokkien Mee', price: '16', desc: 'Wok-fried egg and rice noodles with prawns, squid and pork belly in a prawn bisque broth.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#3c2a18 100%)' },
+        { name: 'Char Kway Teow', price: '15', desc: 'Wok-fried flat noodles with cockles, Chinese sausage, dark soy and a touch of chilli.', bg: 'linear-gradient(145deg,#382618 0%,#304030 100%)', img: '/char_kway_teow_1776676294913.png' },
+        { name: 'Nasi Lemak', price: '14', desc: 'Coconut rice with crispy ikan bilis, roasted peanuts, boiled egg, cucumber and sambal chilli.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)', img: '/nasi_lemak_premium_1776676310543.png' },
+        { name: 'Bak Kut Teh', price: '18', desc: 'Tender pork ribs simmered in a fragrant herbal broth, served with you tiao and steamed rice.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/bak_kut_teh_elegant_1776676327219.png' },
+        { name: 'Hokkien Mee', price: '16', desc: 'Wok-fried egg and rice noodles with prawns, squid and pork belly in a prawn bisque broth.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#3c2a18 100%)', img: '/hokkien_mee_gourmet_1776676342961.png' },
       ]
     },
     'Breakfast Set': {
       col1: [
         { name: 'Kaya Toast Set', price: '8', desc: 'Toasted bread with house kaya and cold butter, paired with soft-boiled eggs and kopi or teh.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img: '/kaya_toast.png' },
-        { name: 'Soft Boiled Eggs', price: '4', desc: 'Two perfectly soft-boiled eggs with white pepper and light soya sauce, served with toast.', bg: 'linear-gradient(145deg,#40301c 0%,#2a3c28 100%)' },
-        { name: 'Milo Dinosaur', price: '6', desc: 'Iced Milo topped generously with extra Milo powder for the full dinosaur experience.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)' },
-        { name: 'Teh Tarik', price: '4', desc: 'Classic pulled milk tea brewed strong with evaporated milk and expertly "pulled" for a frothy top.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)' },
+        { name: 'Soft Boiled Eggs', price: '4', desc: 'Two perfectly soft-boiled eggs with white pepper and light soya sauce, served with toast.', bg: 'linear-gradient(145deg,#40301c 0%,#2a3c28 100%)', img: '/soft_boiled_eggs.jpg' },
+        { name: 'Milo Dinosaur', price: '6', desc: 'Iced Milo topped generously with extra Milo powder for the full dinosaur experience.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)', img: '/milo_dinosaur.jpg' },
+        { name: 'Teh Tarik', price: '4', desc: 'Classic pulled milk tea brewed strong with evaporated milk and expertly "pulled" for a frothy top.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)', img: '/teh_tarik.jpg' },
       ],
       col2: [
-        { name: 'Roti Prata Set', price: '10', desc: 'Crispy pan-fried flatbread served with fish curry dhal and your choice of teh or kopi.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
-        { name: 'Pandan Waffles', price: '8', desc: 'Crispy aromatic pandan waffles with kaya spread and a drizzle of coconut cream.', bg: 'linear-gradient(145deg,#382618 0%,#2e3e2e 100%)' },
+        { name: 'Roti Prata Set', price: '10', desc: 'Crispy pan-fried flatbread served with fish curry dhal and your choice of teh or kopi.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/roti_prata.jpg' },
+        { name: 'Pandan Waffles', price: '8', desc: 'Crispy aromatic pandan waffles with kaya spread and a drizzle of coconut cream.', bg: 'linear-gradient(145deg,#382618 0%,#2e3e2e 100%)', img: '/pandan_waffles.jpg' },
         { name: 'Kueh Set', price: '10', desc: 'Assorted bite-sized traditional kueh including ang ku, kueh dadar and onde onde.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/kueh.png' },
-        { name: 'Putu Piring', price: '6', desc: 'Steamed rice flour cakes filled with gula melaka, served fresh with grated coconut.', bg: 'linear-gradient(145deg,#402818 0%,#42301e 100%)' },
+        { name: 'Putu Piring', price: '6', desc: 'Steamed rice flour cakes filled with gula melaka, served fresh with grated coconut.', bg: 'linear-gradient(145deg,#402818 0%,#42301e 100%)', img: '/putu_piring.jpg' },
       ]
     },
     'Brunch': {
       col1: [
-        { name: 'Nasi Lemak Brunch', price: '18', desc: 'Elevated nasi lemak with crispy otah, rendang chicken, half-boiled egg and house sambal.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'Dim Sum Platter', price: '22', desc: 'Selection of har gow, siu mai, char siu bao and cheung fun with a trio of dipping sauces.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Chwee Kueh', price: '10', desc: 'Steamed rice cakes topped with chai poh and sambal — a timeless Tiong Bahru staple.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)' },
-        { name: 'Yong Tau Foo', price: '16', desc: 'Your choice of tofu and vegetables stuffed with fish paste in a clear or laksa broth.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)' },
+        { name: 'Nasi Lemak Brunch', price: '18', desc: 'Elevated nasi lemak with crispy otah, rendang chicken, half-boiled egg and house sambal.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/nasi_lemak_brunch.jpg' },
+        { name: 'Dim Sum Platter', price: '22', desc: 'Selection of har gow, siu mai, char siu bao and cheung fun with a trio of dipping sauces.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/dim_sum_platter.jpg' },
+        { name: 'Chwee Kueh', price: '10', desc: 'Steamed rice cakes topped with chai poh and sambal — a timeless Tiong Bahru staple.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)', img: '/chwee_kueh.jpg' },
+        { name: 'Yong Tau Foo', price: '16', desc: 'Your choice of tofu and vegetables stuffed with fish paste in a clear or laksa broth.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)', img: '/yong_tau_foo.jpg' },
       ],
       col2: [
         { name: 'Prawn Noodle Brunch', price: '18', desc: 'Hokkien-style prawn noodles in a rich prawn bisque with fresh prawns, pork ribs and sambal.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/laksa.png' },
-        { name: 'Lor Mee', price: '14', desc: 'Thick noodles in a savoury braised sauce with pork, hard-boiled egg and fried fish.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)' },
-        { name: 'Bak Chor Mee', price: '14', desc: 'Minced pork noodles tossed dry with vinegar, chilli and mushrooms, topped with fried shallots.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)' },
+        { name: 'Lor Mee', price: '14', desc: 'Thick noodles in a savoury braised sauce with pork, hard-boiled egg and fried fish.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)', img: '/lor_mee.jpg' },
+        { name: 'Bak Chor Mee', price: '14', desc: 'Minced pork noodles tossed dry with vinegar, chilli and mushrooms, topped with fried shallots.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/bak_chor_mee.jpg' },
         { name: 'Nyonya Laksa', price: '18', desc: 'Peranakan-style laksa with handmade rice noodles, tofu puffs and a rich coconut curry broth.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)', img: '/laksa.png' },
       ]
     },
     'Lunch Set': {
       col1: [
-        { name: 'Economy Rice Set', price: '10', desc: 'Steamed white rice with your choice of two dishes from our daily rotating hawker selection.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)' },
-        { name: 'Duck Rice', price: '16', desc: 'Braised duck with fragrant five-spice rice, tau kwa and house braising sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#42301e 100%)' },
-        { name: 'Mee Pok Dry', price: '12', desc: 'Flat egg noodles tossed with minced pork, fishcake and wonton in savoury chilli sauce.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)' },
-        { name: 'Fried Carrot Cake', price: '10', desc: 'Black version — radish cake wok-fried with egg, chai poh and dark sweet sauce.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Economy Rice Set', price: '10', desc: 'Steamed white rice with your choice of two dishes from our daily rotating hawker selection.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img: '/economy_rice.jpg' },
+        { name: 'Duck Rice', price: '16', desc: 'Braised duck with fragrant five-spice rice, tau kwa and house braising sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#42301e 100%)', img: '/duck_rice.jpg' },
+        { name: 'Mee Pok Dry', price: '12', desc: 'Flat egg noodles tossed with minced pork, fishcake and wonton in savoury chilli sauce.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)', img: '/mee_pok_dry.jpg' },
+        { name: 'Fried Carrot Cake', price: '10', desc: 'Black version — radish cake wok-fried with egg, chai poh and dark sweet sauce.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/fried_carrot_cake.jpg' },
       ],
       col2: [
-        { name: 'Fish Ball Noodle', price: '10', desc: 'Springy handmade fish balls in a clear teochew broth with mee kia or bee hoon.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
-        { name: 'Beef Noodle', price: '16', desc: 'Slow-braised beef brisket and tendon in flat rice noodles with a rich anise-spiced broth.', bg: 'linear-gradient(145deg,#382618 0%,#2c3e2c 100%)' },
-        { name: 'Oyster Omelette', price: '14', desc: 'Fresh oysters with egg and tapioca starch batter, wok-fried with a tart chilli sauce.', bg: 'linear-gradient(145deg,#2e3828 0%,#3c2a18 100%)' },
-        { name: 'Char Siew Rice', price: '14', desc: 'Honey-glazed roast pork over steamed rice with blanched kailan and ginger-scallion oil.', bg: 'linear-gradient(145deg,#402818 0%,#384535 100%)' },
+        { name: 'Fish Ball Noodle', price: '10', desc: 'Springy handmade fish balls in a clear teochew broth with mee kia or bee hoon.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/fish_ball_noodle.jpg' },
+        { name: 'Beef Noodle', price: '16', desc: 'Slow-braised beef brisket and tendon in flat rice noodles with a rich anise-spiced broth.', bg: 'linear-gradient(145deg,#382618 0%,#2c3e2c 100%)', img: '/beef_noodle.jpg' },
+        { name: 'Oyster Omelette', price: '14', desc: 'Fresh oysters with egg and tapioca starch batter, wok-fried with a tart chilli sauce.', bg: 'linear-gradient(145deg,#2e3828 0%,#3c2a18 100%)', img: '/oyster_omelette.jpg' },
+        { name: 'Char Siew Rice', price: '14', desc: 'Honey-glazed roast pork over steamed rice with blanched kailan and ginger-scallion oil.', bg: 'linear-gradient(145deg,#402818 0%,#384535 100%)', img: '/char_siew_rice.jpg' },
       ]
     },
     'Pizza': {
       col1: [
-        { name: 'Sambal Prawn Pizza', price: '24', desc: 'Thin-crust pizza with house sambal, fresh tiger prawns, mozzarella and coriander.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'Satay Chicken Pizza', price: '22', desc: 'Peanut satay sauce base with grilled chicken, red onion, mozzarella and spring onion.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Rendang Beef Pizza', price: '26', desc: 'Slow-cooked rendang beef, caramelised onions and mozzarella on a spiced tomato base.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)' },
-        { name: 'Salted Egg Pizza', price: '24', desc: 'Creamy salted egg yolk sauce with mozzarella, butter chicken and crispy curry leaves.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)' },
+        { name: 'Sambal Prawn Pizza', price: '24', desc: 'Thin-crust pizza with house sambal, fresh tiger prawns, mozzarella and coriander.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/sambal_prawn_pizza.jpg' },
+        { name: 'Satay Chicken Pizza', price: '22', desc: 'Peanut satay sauce base with grilled chicken, red onion, mozzarella and spring onion.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/satay_chicken_pizza.jpg' },
+        { name: 'Rendang Beef Pizza', price: '26', desc: 'Slow-cooked rendang beef, caramelised onions and mozzarella on a spiced tomato base.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)', img: '/rendang_beef_pizza.jpg' },
+        { name: 'Salted Egg Pizza', price: '24', desc: 'Creamy salted egg yolk sauce with mozzarella, butter chicken and crispy curry leaves.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)', img: '/salted_egg_pizza.jpg' },
       ],
       col2: [
-        { name: 'Chilli Crab Pizza', price: '28', desc: 'Signature chilli crab sauce with blue swimmer crab, mozzarella and fried mantou croutons.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
-        { name: 'Pandan Cream Pizza', price: '20', desc: 'Sweet pandan custard base with coconut cream, palm sugar crumble and toasted coconut.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)', img: '/dessert.png' },
-        { name: 'Char Siew BBQ Pizza', price: '24', desc: 'Honey-glazed char siew, hoisin sauce, caramelised onions and sesame seeds.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)' },
-        { name: 'Laksa Seafood Pizza', price: '26', desc: 'Laksa cream sauce with prawns, squid, cockles and mozzarella finished with laksa leaves.', bg: 'linear-gradient(145deg,#402818 0%,#3c2a18 100%)', img: '/laksa.png' },
+        { name: 'Chilli Crab Pizza', price: '28', desc: 'Signature chilli crab sauce with blue swimmer crab, mozzarella and fried mantou croutons.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/chilli_crab_pizza.jpg' },
+        { name: 'Pandan Cream Pizza', price: '20', desc: 'Sweet pandan custard base with coconut cream, palm sugar crumble and toasted coconut.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)', img: '/pandan_cream_pizza.jpg' },
+        { name: 'Char Siew BBQ Pizza', price: '24', desc: 'Honey-glazed char siew, hoisin sauce, caramelised onions and sesame seeds.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/char_siew_bbq_pizza.jpg' },
+        { name: 'Laksa Seafood Pizza', price: '26', desc: 'Laksa cream sauce with prawns, squid, cockles and mozzarella finished with laksa leaves.', bg: 'linear-gradient(145deg,#402818 0%,#3c2a18 100%)', img: '/laksa_seafood_pizza.jpg' },
       ]
     },
     'Drinks & Vines': {
       col1: [
-        { name: 'Teh Tarik', price: '4', desc: 'Classic pulled milk tea brewed strong with evaporated milk and expertly pulled for a frothy top.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'Kopi O', price: '3', desc: 'Traditional Singaporean black coffee brewed with Robusta beans and a touch of sugar syrup.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Bandung Rose', price: '5', desc: 'Chilled rose syrup blended with evaporated milk for a sweet, floral pink refresher.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)' },
-        { name: 'Soya Bean Milk', price: '4', desc: 'Freshly made warm or iced soya bean milk, lightly sweetened the traditional way.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Teh Tarik', price: '4', desc: 'Classic pulled milk tea brewed strong with evaporated milk and expertly pulled for a frothy top.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/teh_tarik.jpg' },
+        { name: 'Kopi O', price: '3', desc: 'Traditional Singaporean black coffee brewed with Robusta beans and a touch of sugar syrup.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/kopi_o.jpg' },
+        { name: 'Bandung Rose', price: '5', desc: 'Chilled rose syrup blended with evaporated milk for a sweet, floral pink refresher.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)', img: '/bandung_rose.jpg' },
+        { name: 'Soya Bean Milk', price: '4', desc: 'Freshly made warm or iced soya bean milk, lightly sweetened the traditional way.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/soya_bean_milk.jpg' },
       ],
       col2: [
-        { name: 'Barley Water', price: '4', desc: 'Refreshing chilled pearl barley water, subtly sweet with a clean, light flavour.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
-        { name: 'Lime Juice', price: '5', desc: 'Fresh-squeezed lime juice with a touch of salt and sugar — the perfect tropical cooler.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)' },
-        { name: 'Grass Jelly Drink', price: '4', desc: 'Chilled grass jelly cubes in a subtly sweet and herbal black jelly drink.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)' },
-        { name: 'Fresh Sugarcane', price: '5', desc: 'Freshly pressed sugarcane juice with lemon slices, served ice-cold.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)' },
+        { name: 'Barley Water', price: '4', desc: 'Refreshing chilled pearl barley water, subtly sweet with a clean, light flavour.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/barley_water.jpg' },
+        { name: 'Lime Juice', price: '5', desc: 'Fresh-squeezed lime juice with a touch of salt and sugar — the perfect tropical cooler.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)', img: '/lime_juice.jpg' },
+        { name: 'Grass Jelly Drink', price: '4', desc: 'Chilled grass jelly cubes in a subtly sweet and herbal black jelly drink.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/grass_jelly_drink.jpg' },
+        { name: 'Fresh Sugarcane', price: '5', desc: 'Freshly pressed sugarcane juice with lemon slices, served ice-cold.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)', img: '/fresh_sugarcane.jpg' },
       ]
     },
   },
@@ -253,85 +253,85 @@ const MENU_DATA: Record<string, Record<string, { col1: any[], col2: any[] }>> = 
     'Main Dishes': {
       col1: [
         { name: 'Truffle Mushroom Risotto', price: '32', desc: 'Creamy Arborio rice with wild mushrooms and a drizzle of white truffle oil.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#304030 100%)', img: '/risotto.png' },
-        { name: 'Pan-Seared Salmon', price: '42', desc: 'Fresh Atlantic salmon with crispy skin, served with asparagus and lemon butter sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#42301e 100%)' },
-        { name: 'Burrata Salad', price: '26', desc: 'Fresh burrata with heirloom tomatoes, basil pesto and aged balsamic.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2a3c28 100%)' },
-        { name: 'Lobster Bisque', price: '28', desc: 'Rich and creamy soup made with fresh Maine lobster and a touch of brandy.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)' },
+        { name: 'Pan-Seared Salmon', price: '42', desc: 'Fresh Atlantic salmon with crispy skin, served with asparagus and lemon butter sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#42301e 100%)', img: '/pan_seared_salmon_1776676360317.png' },
+        { name: 'Burrata Salad', price: '26', desc: 'Fresh burrata with heirloom tomatoes, basil pesto and aged balsamic.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2a3c28 100%)', img: '/burrata_salad_premium_1776676376860.png' },
+        { name: 'Lobster Bisque', price: '28', desc: 'Rich and creamy soup made with fresh Maine lobster and a touch of brandy.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)', img: '/lobster_bisque_gourmet_1776676392422.png' },
       ],
       col2: [
-        { name: 'Wagyu Beef Burger', price: '36', desc: 'Premium Wagyu patty with caramelised onions, truffle mayo and aged cheddar.', bg: 'linear-gradient(145deg,#402818 0%,#2c3e2c 100%)', img: '/steak.png' },
-        { name: 'Roasted Rack of Lamb', price: '58', desc: 'Herb-crusted lamb rack served with mint sauce and roasted root vegetables.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
-        { name: 'Duck Confit', price: '48', desc: 'Slow-cooked duck leg with crispy skin, cherry jus and roasted fingerling potatoes.', bg: 'linear-gradient(145deg,#382618 0%,#304030 100%)' },
+        { name: 'Wagyu Beef Burger', price: '36', desc: 'Premium Wagyu patty with caramelised onions, truffle mayo and aged cheddar.', bg: 'linear-gradient(145deg,#402818 0%,#2c3e2c 100%)', img: '/rack_of_lamb.jpg' },
+        { name: 'Roasted Rack of Lamb', price: '58', desc: 'Herb-crusted lamb rack served with mint sauce and roasted root vegetables.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/rack_of_lamb.jpg' },
+        { name: 'Duck Confit', price: '48', desc: 'Slow-cooked duck leg with crispy skin, cherry jus and roasted fingerling potatoes.', bg: 'linear-gradient(145deg,#382618 0%,#304030 100%)', img: '/duck_confit_1776676256930.png' },
         { name: 'Beef Wellington', price: '68', desc: 'Tenderloin wrapped in mushroom duxelles and golden puff pastry, served with red wine jus.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)', img: '/steak.png' },
       ]
     },
     'Breakfast Set': {
       col1: [
-        { name: 'Avocado Toast', price: '22', desc: 'Sourdough with smashed avocado, poached egg, feta, microgreens and chilli oil.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)' },
-        { name: 'Eggs Benedict Royale', price: '28', desc: 'Poached eggs and smoked salmon on toasted muffins with saffron hollandaise.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Acai Bowl', price: '20', desc: 'Organic acai blended with banana and almond milk, topped with premium granola and fresh fruits.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)' },
-        { name: 'Chia Seed Pudding', price: '18', desc: 'Overnight chia pudding with coconut milk, mango coulis and toasted macadamia nuts.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Avocado Toast', price: '22', desc: 'Sourdough with smashed avocado, poached egg, feta, microgreens and chilli oil.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img: '/avocado_toast_premium_1776678642047.png' },
+        { name: 'Eggs Benedict Royale', price: '28', desc: 'Poached eggs and smoked salmon on toasted muffins with saffron hollandaise.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/eggs_benedict_gourmet_1776678624645.png' },
+        { name: 'Acai Bowl', price: '20', desc: 'Organic acai blended with banana and almond milk, topped with premium granola and fresh fruits.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)', img: '/acai_bowl_premium_vibrant_1776678707914.png' },
+        { name: 'Chia Seed Pudding', price: '18', desc: 'Overnight chia pudding with coconut milk, mango coulis and toasted macadamia nuts.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/chia_seed_pudding_premium_1776678723242.png' },
       ],
       col2: [
-        { name: 'Granola Parfait', price: '18', desc: 'Layers of house granola, Greek yogurt, seasonal berries and wildflower honey.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
-        { name: 'Smoked Salmon Bagel', price: '26', desc: 'Toasted sesame bagel with cream cheese, smoked salmon, capers and pickled red onion.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)' },
-        { name: 'Brioche French Toast', price: '24', desc: 'Thick-cut brioche with salted caramel, fresh berries and double cream.', bg: 'linear-gradient(145deg,#2e3828 0%,#3c2a18 100%)', img: '/dessert.png' },
-        { name: 'Overnight Oats', price: '16', desc: 'Oats soaked in oat milk with chia seeds, topped with fresh fruit, nuts and honey.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)' },
+        { name: 'Granola Parfait', price: '18', desc: 'Layers of house granola, Greek yogurt, seasonal berries and wildflower honey.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/granola_bowl_gourmet_1776678692929.png' },
+        { name: 'Smoked salmon Bagel', price: '26', desc: 'Toasted sesame bagel with cream cheese, smoked salmon, capers and pickled red onion.', bg: 'linear-gradient(145deg,#382618 0%,#384535 100%)', img: '/smoked_salmon_bagel_1776678738796.png' },
+        { name: 'Brioche French Toast', price: '24', desc: 'Thick-cut brioche with salted caramel, fresh berries and double cream.', bg: 'linear-gradient(145deg,#2e3828 0%,#3c2a18 100%)', img: '/french_toast_elegant_1776678660761.png' },
+        { name: 'Overnight Oats', price: '16', desc: 'Oats soaked in oat milk with chia seeds, topped with fresh fruit, nuts and honey.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/overnight_oats_premium_1776678754249.png' },
       ]
     },
     'Brunch': {
       col1: [
-        { name: 'Truffle Scrambled Eggs', price: '38', desc: 'Ultra-slow scrambled eggs with black truffle shavings on toasted brioche with caviar.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'Shakshuka Deluxe', price: '32', desc: 'Eggs poached in spiced tomato sauce with feta, sumac labneh and sourdough.', bg: 'linear-gradient(145deg,#40301c 0%,#304030 100%)' },
+        { name: 'Truffle Scrambled Eggs', price: '38', desc: 'Ultra-slow scrambled eggs with black truffle shavings on toasted brioche with caviar.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/truffle_scrambled_eggs_gourmet_1776678814832.png' },
+        { name: 'Shakshuka Deluxe', price: '32', desc: 'Eggs poached in spiced tomato sauce with feta, sumac labneh and sourdough.', bg: 'linear-gradient(145deg,#40301c 0%,#304030 100%)', img: '/shakshuka_deluxe_1776678830414.png' },
         { name: 'Avocado Pancakes', price: '28', desc: 'Fluffy avocado pancakes with whipped mascarpone, berry compote and honey.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2c3e2c 100%)', img: '/dessert.png' },
-        { name: 'Lobster Roll', price: '45', desc: 'Cold Maine lobster salad with tarragon mayo in a toasted butter roll with frisée.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)' },
+        { name: 'Lobster Roll', price: '45', desc: 'Cold Maine lobster salad with tarragon mayo in a toasted butter roll with frisée.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)', img: '/lobster_roll_gourmet_1776678861599.png' },
       ],
       col2: [
-        { name: 'Burrata Toast', price: '28', desc: 'Fresh burrata on toasted sourdough with heirloom tomatoes, basil and aged balsamic.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
-        { name: 'Croque Madame', price: '30', desc: 'Black forest ham and Comté cheese sandwich with béchamel and a perfectly fried egg.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)' },
+        { name: 'Burrata Toast', price: '28', desc: 'Fresh burrata on toasted sourdough with heirloom tomatoes, basil and aged balsamic.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/burrata_toast_premium_1776678846025.png' },
+        { name: 'Croque Madame', price: '30', desc: 'Black forest ham and Comté cheese sandwich with béchamel and a perfectly fried egg.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)', img: '/croque_madame_gourmet_1776678877167.png' },
         { name: 'Belgian Waffles', price: '26', desc: 'Light crispy waffles with Chantilly cream, fresh strawberries and warm berry coulis.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/dessert.png' },
-        { name: 'Eggs en Cocotte', price: '32', desc: 'Baked eggs with smoked salmon, crème fraîche and herbs in a warm ramekin with soldiers.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)' },
+        { name: 'Eggs en Cocotte', price: '32', desc: 'Baked eggs with smoked salmon, crème fraîche and herbs in a warm ramekin with soldiers.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)', img: '/eggs_en_cocotte_gourmet_1776678892734.png' },
       ]
     },
     'Lunch Set': {
       col1: [
-        { name: 'Wagyu Beef Burger', price: '42', desc: 'Wagyu patty, caramelised onion, truffle aioli and aged cheddar in a brioche bun with fries.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/steak.png' },
-        { name: 'Grilled Atlantic Salmon', price: '45', desc: 'Herb-marinated salmon with asparagus, baby potatoes and a dill lemon butter sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Caesar Salad', price: '28', desc: 'Romaine lettuce, house Caesar dressing, parmesan crisp, anchovy and sourdough croutons.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)' },
+        { name: 'Wagyu Beef Burger', price: '42', desc: 'Wagyu patty, caramelised onion, truffle aioli and aged cheddar in a brioche bun with fries.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/rack_of_lamb.jpg' },
+        { name: 'Grilled Atlantic Salmon', price: '45', desc: 'Herb-marinated salmon with asparagus, baby potatoes and a dill lemon butter sauce.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/pan_seared_salmon_1776676360317.png' },
+        { name: 'Caesar Salad', price: '28', desc: 'Romaine lettuce, house Caesar dressing, parmesan crisp, anchovy and sourdough croutons.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#304030 100%)', img: '/caesar_salad_premium_1776679022955.png' },
         { name: 'Truffle Pasta', price: '38', desc: 'Fresh pappardelle with black truffle, porcini mushrooms and aged parmesan.', bg: 'linear-gradient(145deg,#352820 0%,#384535 100%)', img: '/risotto.png' },
       ],
       col2: [
-        { name: 'Burrata & Heirloom Tomato', price: '30', desc: 'Fresh burrata with vine-ripened heirloom tomatoes, basil oil and Maldon salt.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
+        { name: 'Burrata & Heirloom Tomato', price: '30', desc: 'Fresh burrata with vine-ripened heirloom tomatoes, basil oil and Maldon salt.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/burrata_salad_premium_1776676376860.png' },
         { name: 'Club Sandwich', price: '32', desc: 'Triple-decker with roasted chicken, streaky bacon, avocado, egg and brioche toast.', bg: 'linear-gradient(145deg,#382618 0%,#42301e 100%)', img: '/chicken.png' },
-        { name: 'Nicoise Salad', price: '34', desc: 'Seared tuna, green beans, olives, cherry tomatoes, quail egg and anchovy vinaigrette.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)' },
-        { name: 'Fish Tacos', price: '28', desc: 'Crispy sea bass in corn tortillas with mango salsa, chipotle slaw and lime crema.', bg: 'linear-gradient(145deg,#402818 0%,#384535 100%)' },
+        { name: 'Nicoise Salad', price: '34', desc: 'Seared tuna, green beans, olives, cherry tomatoes, quail egg and anchovy vinaigrette.', bg: 'linear-gradient(145deg,#2e3828 0%,#304030 100%)', img: '/nicoise_salad_premium_1776679038409.png' },
+        { name: 'Fish Tacos', price: '28', desc: 'Crispy sea bass in corn tortillas with mango salsa, chipotle slaw and lime crema.', bg: 'linear-gradient(145deg,#402818 0%,#384535 100%)', img: '/fish_tacos_gourmet_1776679053976.png' },
       ]
     },
     'Pizza': {
       col1: [
         { name: 'Wagyu Truffle', price: '42', desc: 'Wagyu beef, black truffle cream, caramelised shallots and mozzarella on thin crust.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#3c2a18 100%)', img: '/steak.png' },
-        { name: 'Burrata & Prosciutto', price: '36', desc: 'Fresh burrata, San Daniele prosciutto, rocket and honey on a light tomato base.', bg: 'linear-gradient(145deg,#40301c 0%,#2a3c28 100%)' },
-        { name: 'Smoked Salmon', price: '34', desc: 'Crème fraîche, smoked salmon, capers, red onion and dill on a crispy base.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)' },
+        { name: 'Burrata & Prosciutto', price: '36', desc: 'Fresh burrata, San Daniele prosciutto, rocket and honey on a light tomato base.', bg: 'linear-gradient(145deg,#40301c 0%,#2a3c28 100%)', img: '/burrata_prosciutto.jpeg' },
+        { name: 'Smoked Salmon', price: '34', desc: 'Crème fraîche, smoked salmon, capers, red onion and dill on a crispy base.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2e3e2e 100%)', img: '/smoked_salmon_pizza_1776679069545.png' },
         { name: 'Wild Mushroom', price: '30', desc: 'Forest mushrooms, taleggio, truffle oil and fresh thyme on a garlic cream base.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/risotto.png' },
       ],
       col2: [
-        { name: 'Nduja & Honey', price: '32', desc: 'Spicy Calabrian nduja, mozzarella, fresh chilli and a drizzle of wildflower honey.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)' },
+        { name: 'Nduja & Honey', price: '32', desc: 'Spicy Calabrian nduja, mozzarella, fresh chilli and a drizzle of wildflower honey.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/nduja_honey.jpeg' },
         { name: 'Fig & Gorgonzola', price: '30', desc: 'Fresh figs, gorgonzola, caramelised walnuts and rocket with balsamic glaze.', bg: 'linear-gradient(145deg,#382618 0%,#2c3e2c 100%)', img: '/dessert.png' },
-        { name: 'Quattro Formaggi', price: '28', desc: 'Mozzarella, gorgonzola, taleggio and parmesan with truffle honey and rosemary.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)' },
-        { name: 'Roasted Vegetable', price: '26', desc: 'Seasonal roasted vegetables, burrata, pesto and pine nuts on a sourdough base.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)' },
+        { name: 'Quattro Formaggi', price: '28', desc: 'Mozzarella, gorgonzola, taleggio and parmesan with truffle honey and rosemary.', bg: 'linear-gradient(145deg,#2e3828 0%,#42301e 100%)', img: '/quattro_formaggi.jpg' },
+        { name: 'Roasted Vegetable', price: '26', desc: 'Seasonal roasted vegetables, burrata, pesto and pine nuts on a sourdough base.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/roasted_vegetable.jpg' },
       ]
     },
     'Drinks & Vines': {
       col1: [
-        { name: 'Barolo 2019', price: '35', desc: 'Full-bodied Piedmontese red with notes of dried cherry, tar and dried roses. Best with red meat.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)' },
-        { name: 'Burgundy Pinot Noir', price: '32', desc: 'Elegant French red with silky tannins and red fruit notes of cherry and raspberry.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)' },
-        { name: 'Sauvignon Blanc', price: '22', desc: 'Marlborough Sauvignon with vibrant citrus, gooseberry and herbaceous notes.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)' },
-        { name: 'Prosecco di Valdobbiadene', price: '24', desc: 'Fine persistent bubbles with green apple, white peach and floral notes.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)' },
+        { name: 'Barolo 2019', price: '35', desc: 'Full-bodied Piedmontese red with notes of dried cherry, tar and dried roses. Best with red meat.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/barolo.jpg' },
+        { name: 'Burgundy Pinot Noir', price: '32', desc: 'Elegant French red with silky tannins and red fruit notes of cherry and raspberry.', bg: 'linear-gradient(145deg,#40301c 0%,#2e3e2e 100%)', img: '/burgundy.jpg' },
+        { name: 'Sauvignon Blanc', price: '22', desc: 'Marlborough Sauvignon with vibrant citrus, gooseberry and herbaceous notes.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#384535 100%)', img: '/sauvignon_blanc.jpg' },
+        { name: 'Prosecco di Valdobbiadene', price: '24', desc: 'Fine persistent bubbles with green apple, white peach and floral notes.', bg: 'linear-gradient(145deg,#352820 0%,#304030 100%)', img: '/prosecco.jpg' },
       ],
       col2: [
-        { name: 'Negroni', price: '22', desc: 'Gin, Campari and sweet vermouth in equal parts with a flamed orange peel.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)' },
-        { name: 'Whisky Sour', price: '24', desc: 'Single malt Scotch, fresh lemon juice, simple syrup and egg white, shaken and strained.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)' },
-        { name: 'Craft IPA', price: '16', desc: 'Rotating artisanal IPAs from around the region. Ask your server for today\'s pour.', bg: 'linear-gradient(145deg,#2e3828 0%,#384535 100%)' },
-        { name: 'Garden Mocktail', price: '14', desc: 'Cucumber, elderflower, mint and tonic with a garnish of fresh herbs and edible flowers.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)' },
+        { name: 'Negroni', price: '22', desc: 'Gin, Campari and sweet vermouth in equal parts with a flamed orange peel.', bg: 'linear-gradient(145deg,#3c2a18 0%,#2c3e2c 100%)', img: '/negroni.jpg' },
+        { name: 'Whisky Sour', price: '24', desc: 'Single malt Scotch, fresh lemon juice, simple syrup and egg white, shaken and strained.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)', img: '/whisky_sour.jpg' },
+        { name: 'Craft IPA', price: '16', desc: 'Rotating artisanal IPAs from around the region. Ask your server for today\'s pour.', bg: 'linear-gradient(145deg,#2e3828 0%,#384535 100%)', img: '/craft_ipa.jpg' },
+        { name: 'Garden Mocktail', price: '14', desc: 'Cucumber, elderflower, mint and tonic with a garnish of fresh herbs and edible flowers.', bg: 'linear-gradient(145deg,#402818 0%,#2a3c28 100%)', img: '/garden_mocktail.jpg' },
       ]
     },
   }
@@ -352,10 +352,38 @@ function getAvailableLocations(dishName: string): string[] {
   return locs.length > 0 ? locs : LOCATIONS
 }
 
+/* ─── Shared Tilt Logic ─── */
+function useTilt(intensity = 15) {
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0 })
+  const ref = useRef<HTMLDivElement>(null)
+
+  function onMouseMove(e: React.MouseEvent) {
+    const el = ref.current
+    if (!el) return
+    const { left, top, width, height } = el.getBoundingClientRect()
+    const x = (e.clientX - left) / width - 0.5
+    const y = (e.clientY - top) / height - 0.5
+    setTilt({ rx: -y * intensity, ry: x * intensity })
+  }
+
+  function onMouseLeave() {
+    setTilt({ rx: 0, ry: 0 })
+  }
+
+  return { tilt, onMouseMove, onMouseLeave, ref }
+}
+
 /* ─── FoodItem ─── */
 function FoodItem({ name, price, desc, bg, img, onClick, delay }: { name: string; price?: string; desc: string; bg: string; img?: string; onClick?: () => void; delay?: number }) {
   return (
-    <div className="food-item fade-up" onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default', transitionDelay: delay ? `${delay}s` : undefined }}>
+    <div 
+      className="food-item fade-up" 
+      onClick={onClick} 
+      style={{ 
+        cursor: onClick ? 'pointer' : 'default', 
+        transitionDelay: delay ? `${delay}s` : undefined
+      }}
+    >
       <div className="food-img-wrap" style={{ background: bg }}>
         {img && <img src={img} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
         <svg className="food-blob-tl" viewBox="0 0 284 294.028" fill="none">
@@ -375,6 +403,37 @@ function FoodItem({ name, price, desc, bg, img, onClick, delay }: { name: string
       <div className="food-divider">
         <div className="food-divider-line" />
         <StarSm />
+      </div>
+    </div>
+  )
+}
+
+/* ─── DishCard ─── */
+function DishCard({ dish, onClick, delay }: { dish: any, onClick: () => void, delay?: string }) {
+  const { tilt, onMouseMove, onMouseLeave, ref } = useTilt(15)
+
+  return (
+    <div 
+      ref={ref}
+      className="dish-card fade-up" 
+      onClick={onClick} 
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{ 
+        cursor: 'pointer', 
+        transitionDelay: delay,
+        transform: `perspective(1200px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
+        transition: tilt.rx === 0 && tilt.ry === 0 ? 'transform 0.6s ease' : 'transform 0.1s ease'
+      }}
+    >
+      <div className="dish-img-container">
+        <div className="dish-img-inner" style={{ background: dish.bg }}>
+          {dish.img && <img src={dish.img} alt={dish.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
+        </div>
+      </div>
+      <div className="dish-desc">
+        <p className="dish-name">{dish.name}</p>
+        <p className="dish-body">{dish.desc}</p>
       </div>
     </div>
   )
@@ -414,6 +473,64 @@ export default function Home() {
     }, 400)
   }
   
+  const [heroTilt, setHeroTilt] = useState({ rx: 0, ry: 0 })
+  const heroImgRef = useRef<HTMLDivElement>(null)
+
+  function handleHeroMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const el = heroImgRef.current
+    if (!el) return
+    const { left, top, width, height } = el.getBoundingClientRect()
+    const x = (e.clientX - left) / width  - 0.5   // -0.5 … 0.5
+    const y = (e.clientY - top)  / height - 0.5
+    setHeroTilt({ rx: -y * 14, ry: x * 14 })
+  }
+  function handleHeroMouseLeave() {
+    setHeroTilt({ rx: 0, ry: 0 })
+  }
+
+  const [orderFly, setOrderFly] = useState<{ x: number; y: number } | null>(null)
+  const [logoPopping, setLogoPopping] = useState(false)
+  const [orderItems, setOrderItems] = useState<{ name: string; price: string }[]>([])
+  const [orderOpen, setOrderOpen] = useState(false)
+  const navLogoRef = useRef<HTMLDivElement>(null)
+  const orderBtnRef = useRef<HTMLButtonElement>(null)
+
+  function addToOrder() {
+    const btn = orderBtnRef.current
+    const logo = navLogoRef.current
+    if (!btn || !logo) { closeDrawer(); return }
+    const br = btn.getBoundingClientRect()
+    const lr = logo.getBoundingClientRect()
+    setOrderFly({ x: br.left + br.width / 2, y: br.top + br.height / 2 })
+    if (selectedDish) {
+      setOrderItems(prev => [...prev, { name: selectedDish.name, price: selectedDish.price || '0' }])
+    }
+    closeDrawer()
+    setTimeout(() => {
+      setLogoPopping(true)
+      setTimeout(() => setLogoPopping(false), 500)
+    }, 650)
+    setTimeout(() => setOrderFly(null), 950)
+    if (logo) {
+      const tx = lr.left + lr.width / 2
+      const ty = lr.top + lr.height / 2
+      document.documentElement.style.setProperty('--fly-tx', `${tx}px`)
+      document.documentElement.style.setProperty('--fly-ty', `${ty}px`)
+    }
+  }
+
+  function removeOrderItem(index: number) {
+    setOrderItems(prev => prev.filter((_, i) => i !== index))
+  }
+
+  // Group order items by name for display
+  const groupedOrder = orderItems.reduce<{ name: string; price: string; count: number; indices: number[] }[]>((acc, item, idx) => {
+    const existing = acc.find(g => g.name === item.name)
+    if (existing) { existing.count++; existing.indices.push(idx) }
+    else acc.push({ name: item.name, price: item.price, count: 1, indices: [idx] })
+    return acc
+  }, [])
+
   const trackRef = useRef<HTMLDivElement>(null)
   const searchBarRef = useRef<HTMLDivElement>(null)
   const menuSectionRef = useRef<HTMLElement>(null)
@@ -574,6 +691,13 @@ export default function Home() {
       {!splashDone && (
         <div className="splash">
           <span className="splash-logo">Timberwood</span>
+          <div className="splash-progress-wrap">
+            <StarLg style={{ width: 14, height: 14, flexShrink: 0 }} />
+            <div className="splash-progress-track">
+              <div className="splash-progress-fill" />
+            </div>
+            <StarLg style={{ width: 14, height: 14, flexShrink: 0 }} />
+          </div>
         </div>
       )}
 
@@ -593,7 +717,18 @@ export default function Home() {
                 <a href="#">ABOUT US</a>
                 <a href="#">REVIEWS</a>
               </div>
-              <div className="nav-logo">Timberwood</div>
+              <div className="nav-logo-wrap">
+                <div
+                  ref={navLogoRef}
+                  className={`nav-logo${logoPopping ? ' logo-pop' : ''}`}
+                  onClick={() => setOrderOpen(o => !o)}
+                >
+                  Timberwood
+                  {orderItems.length > 0 && (
+                    <span key={orderItems.length} className="order-badge">{orderItems.length}</span>
+                  )}
+                </div>
+              </div>
               <div className="nav-main-links">
                 <a href="#menu" className="nav-menu-link">MENU</a>
                 <a href="#" className="btn-book">
@@ -619,7 +754,7 @@ export default function Home() {
             <div className="hero-left fade-left">
               <div className="hero-heading">
                 <div className="hero-eyebrow">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 0, width: 148, flexShrink: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, width: 148, flexShrink: 0 }}>
                     <StarSm style={{ flexShrink: 0 }} />
                     <div style={{ flex: 1, height: 1, background: 'rgba(224,223,213,0.5)' }} />
                   </div>
@@ -628,13 +763,23 @@ export default function Home() {
                 <h1 className="hero-title">Dining Experience</h1>
               </div>
               <p className="hero-body">Savor every moment from sunrise to sunset at The Thirty Six. Indulge in exquisite breakfasts, delightful lunches, and unforgettable dinners crafted with passion and precision.</p>
-              <a href="#menu" className="btn-discover">
+              <a href="#testimonials" className="btn-discover">
                 <span className="btn-label">DISCOVER OUR MENU</span>
                 <ArrowR />
               </a>
             </div>
 
-            <div className="hero-image-wrap fade-right" style={{ transitionDelay: '.15s' }}>
+            <div
+              ref={heroImgRef}
+              className="hero-image-wrap fade-right"
+              style={{
+                transitionDelay: '.15s',
+                transform: `perspective(1200px) rotateX(${heroTilt.rx}deg) rotateY(${heroTilt.ry}deg)`,
+                transition: heroTilt.rx === 0 && heroTilt.ry === 0 ? 'transform 0.6s ease' : 'transform 0.12s ease',
+              }}
+              onMouseMove={handleHeroMouseMove}
+              onMouseLeave={handleHeroMouseLeave}
+            >
               <div className="hero-img-inner">
                 {HERO_LOCATIONS.map((loc, i) => (
                   <div
@@ -658,7 +803,7 @@ export default function Home() {
           </section>
 
           {/* ─── TESTIMONIALS ─── */}
-          <section className="testimonials">
+          <section className="testimonials" id="testimonials">
             <div className="quote-container fade-scale">
               <div className="quote-bg" />
               <p className="quote-text">
@@ -667,7 +812,7 @@ export default function Home() {
             </div>
 
             {/* Dishes carousel */}
-            <div className="dishes-container">
+            <div className="dishes-container" >
               {/* Vertical tag */}
               <div className="dishes-tag-col">
                 <div style={{ width: 58, height: 314, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, overflow: 'hidden' }}>
@@ -678,7 +823,7 @@ export default function Home() {
                 <div style={{ width: 58, flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 0 }}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
                     <div style={{ flex: 1, width: 0.5, background: 'rgba(224,223,213,0.4)' }} />
-                    <StarSm />
+                    <StarSm style={{ marginTop: 12 }} />
                   </div>
                 </div>
               </div>
@@ -691,17 +836,12 @@ export default function Home() {
                 
                 <div className="dish-cards" ref={trackRef} onScroll={handleTrackScroll}>
                   {[...DISHES, ...DISHES, ...DISHES].map((dish, i) => (
-                    <div className="dish-card fade-up" key={i} onClick={() => setSelectedDish(dish as any)} style={{ cursor: 'pointer', transitionDelay: `${(i % DISHES.length) * 0.12}s` }}>
-                      <div className="dish-img-container">
-                        <div className="dish-img-inner" style={{ background: dish.bg }}>
-                          {dish.img && <img src={dish.img} alt={dish.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-                        </div>
-                      </div>
-                      <div className="dish-desc">
-                        <p className="dish-name">{dish.name}</p>
-                        <p className="dish-body">{dish.desc}</p>
-                      </div>
-                    </div>
+                    <DishCard 
+                      key={i} 
+                      dish={dish} 
+                      onClick={() => setSelectedDish(dish as any)} 
+                      delay={`${(i % DISHES.length) * 0.12}s`} 
+                    />
                   ))}
                 </div>
 
@@ -1048,12 +1188,60 @@ export default function Home() {
               </div>
 
               <div className="drawer-actions">
-                <button className="btn-drawer-primary">
+                <button ref={orderBtnRef} className="btn-drawer-primary" onClick={addToOrder}>
                   <span>ADD TO ORDER</span>
                 </button>
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ══════════════ ORDER PANEL ══════════════ */}
+      <div
+        className={`order-panel-overlay${orderOpen ? ' open' : ''}`}
+        onClick={() => setOrderOpen(false)}
+      />
+      <div className={`order-panel${orderOpen ? ' open' : ''}`}>
+        <div className="order-panel-title">My Order</div>
+        <div className="order-panel-sub">— Timberwood —</div>
+        <hr className="order-panel-divider" />
+        {groupedOrder.length === 0 ? (
+          <div className="order-panel-empty">Nothing here yet...</div>
+        ) : (
+          <ul className="order-panel-list">
+            {groupedOrder.map((group) => (
+              <li key={group.name} className="order-panel-item">
+                <span className="order-panel-item-bullet">·</span>
+                <span className="order-panel-item-text">{group.name}</span>
+                {group.count > 1 && (
+                  <span className="order-panel-item-qty">×{group.count}</span>
+                )}
+                <button
+                  className="order-panel-remove"
+                  onClick={() => removeOrderItem(group.indices[group.indices.length - 1])}
+                  title="Remove one"
+                >✕</button>
+              </li>
+            ))}
+          </ul>
+        )}
+        {groupedOrder.length > 0 && (
+          <div className="order-panel-footer">
+            <a href="#" className="order-panel-proceed">Proceed to Order →</a>
+          </div>
+        )}
+      </div>
+
+      {/* ══════════════ ORDER FLY PAPER ══════════════ */}
+      {orderFly && (
+        <div
+          className="order-fly-paper"
+          style={{ '--fly-sx': `${orderFly.x}px`, '--fly-sy': `${orderFly.y}px` } as React.CSSProperties}
+        >
+          <div className="order-fly-line" />
+          <div className="order-fly-line short" />
+          <div className="order-fly-line" />
         </div>
       )}
     </>
