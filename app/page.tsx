@@ -67,6 +67,7 @@ const DISHES = [
     name: 'Savory Chinese Porridge',
     desc: 'A comforting bowl of traditional Chinese porridge simmered to perfection, enriched with tender meats or seafood, and garnished with fragrant herbs.',
     bg: 'linear-gradient(170deg,#e8d8b0 0%,#b09060 25%,#3c2a20 65%,#2a3c30 100%)',
+    img: '/savory_chinese_porridge.jpg',
   },
   {
     name: 'Teriyaki Glazed Beef',
@@ -96,13 +97,13 @@ const MENU_DATA: Record<string, Record<string, { col1: any[], col2: any[] }>> = 
       col1: [
         { name: 'Eggs Benedict', price: '22', desc: 'Poached eggs on toasted English muffins with Canadian bacon and silky hollandaise sauce.', bg: 'linear-gradient(145deg,#2e3f2a 0%,#42301e 100%)', img: '/eggs_benedict.jpg' },
         { name: 'French Toast', price: '18', desc: 'Thick-cut brioche soaked in vanilla custard, golden-fried with fresh berries and maple syrup.', bg: 'linear-gradient(145deg,#40301c 0%,#304030 100%)', img: '/french_toast.jpg' },
-        { name: 'Granola Bowl', price: '16', desc: 'House granola with Greek yogurt, seasonal fruits, honey and a sprinkle of toasted seeds.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2c3e2c 100%)', img: '/granola_bowl_gourmet_1776678692929.png' },
+        { name: 'Granola Bowl', price: '16', desc: 'House granola with Greek yogurt, seasonal fruits, honey and a sprinkle of toasted seeds.', bg: 'linear-gradient(145deg,#3a2c1c 0%,#2c3e2c 100%)', img: '/granola_bowl.jpg' },
         { name: 'Smoked Salmon Bagel', price: '24', desc: 'Toasted bagel with cream cheese, smoked Norwegian salmon, capers, red onion and dill.', bg: 'linear-gradient(145deg,#352820 0%,#2e3e2e 100%)', img: '/smoked_salmon_bagel.jpg' },
       ],
       col2: [
         { name: 'Avocado Toast', price: '20', desc: 'Sourdough toast with smashed avocado, cherry tomatoes, poached egg and chilli flakes.', bg: 'linear-gradient(145deg,#3c2a18 0%,#384535 100%)', img: '/avocado_toast.jpg' },
-        { name: 'Full English Breakfast', price: '28', desc: 'Bacon, sausages, eggs your way, grilled tomato, mushrooms, baked beans and buttered toast.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)', img: '/full_english_premium_1776678676825.png' },
-        { name: 'Acai Bowl', price: '18', desc: 'Blended acai with banana and almond milk, topped with granola, coconut flakes and seasonal fruits.', bg: 'linear-gradient(145deg,#2e3828 0%,#2a3c28 100%)', img: '/acai_bowl_premium_vibrant_1776678707914.png' },
+        { name: 'Full English Breakfast', price: '28', desc: 'Bacon, sausages, eggs your way, grilled tomato, mushrooms, baked beans and buttered toast.', bg: 'linear-gradient(145deg,#382618 0%,#3c2a18 100%)', img: '/full_english_breakfast.jpg' },
+        { name: 'Acai Bowl', price: '18', desc: 'Blended acai with banana and almond milk, topped with granola, coconut flakes and seasonal fruits.', bg: 'linear-gradient(145deg,#2e3828 0%,#2a3c28 100%)', img: '/acai_bowl.jpg' },
         { name: 'Croissant & Jam', price: '14', desc: 'Buttery all-butter croissant served warm with house-made seasonal jam and Normandy butter.', bg: 'linear-gradient(145deg,#402818 0%,#304030 100%)', img: '/croissant_and_jam.jpg' },
       ]
     },
@@ -492,6 +493,12 @@ export default function Home() {
   const [logoPopping, setLogoPopping] = useState(false)
   const [orderItems, setOrderItems] = useState<{ name: string; price: string }[]>([])
   const [orderOpen, setOrderOpen] = useState(false)
+  const [showDiamondBurst, setShowDiamondBurst] = useState(false)
+  const [showOrderReceipt, setShowOrderReceipt] = useState(false)
+  const [receiptFoldPhase, setReceiptFoldPhase] = useState<0|1|2|3|4>(0)
+  const [lastOrder, setLastOrder] = useState<{ items: { name: string; price: string; count: number }[]; queueNum: number; estMins: number; subtotal: number; tax: number; total: number } | null>(null)
+  const [showMiniReceipt, setShowMiniReceipt] = useState(false)
+  const [disableBounce, setDisableBounce] = useState(false)
   const navLogoRef = useRef<HTMLDivElement>(null)
   const orderBtnRef = useRef<HTMLButtonElement>(null)
 
@@ -521,6 +528,33 @@ export default function Home() {
 
   function removeOrderItem(index: number) {
     setOrderItems(prev => prev.filter((_, i) => i !== index))
+  }
+
+  function handleProceedToOrder(e: React.MouseEvent) {
+    e.preventDefault()
+    const num = Math.floor(Math.random() * 20) + 1
+    const items = groupedOrder.map(g => ({ name: g.name, price: g.price, count: g.count }))
+    const subtotal = items.reduce((s, g) => s + parseFloat(g.price) * g.count, 0)
+    const tax = subtotal * 0.09
+    const total = subtotal + tax
+    const estMins = Math.max(15, items.length * 5 + 10)
+    setLastOrder({ items, queueNum: num, estMins, subtotal, tax, total })
+    setOrderItems([])
+    setDisableBounce(false)
+    setShowDiamondBurst(true)
+    setShowOrderReceipt(true)
+    setShowMiniReceipt(true)
+    setOrderOpen(false)
+    setTimeout(() => setShowDiamondBurst(false), 2200)
+  }
+
+  function handleCloseReceipt() {
+    if (receiptFoldPhase > 0) return
+    setReceiptFoldPhase(1)                // panels appear, no animation yet
+    setTimeout(() => setReceiptFoldPhase(2), 20)   // 1 frame: fold 02+04 → left
+    setTimeout(() => setReceiptFoldPhase(3), 290)  // fold done: fold bottom → top
+    setTimeout(() => setReceiptFoldPhase(4), 560)  // fold done: fly to corner
+    setTimeout(() => { setShowOrderReceipt(false); setReceiptFoldPhase(0) }, 1010)
   }
 
   // Group order items by name for display
@@ -1228,7 +1262,7 @@ export default function Home() {
         )}
         {groupedOrder.length > 0 && (
           <div className="order-panel-footer">
-            <a href="#" className="order-panel-proceed">Proceed to Order →</a>
+            <a href="#" className="order-panel-proceed" onClick={handleProceedToOrder}>Proceed to Order →</a>
           </div>
         )}
       </div>
@@ -1242,6 +1276,175 @@ export default function Home() {
           <div className="order-fly-line" />
           <div className="order-fly-line short" />
           <div className="order-fly-line" />
+        </div>
+      )}
+
+      {/* ══════════════ DIAMOND BURST ══════════════ */}
+      {showDiamondBurst && (
+        <div className="diamond-burst-overlay">
+          {[
+            { x:8,  y:12, s:22, d:0.00, r:15  },
+            { x:20, y:5,  s:14, d:0.10, r:-20 },
+            { x:5,  y:32, s:28, d:0.15, r:30  },
+            { x:35, y:7,  s:16, d:0.05, r:45  },
+            { x:50, y:4,  s:30, d:0.00, r:0   },
+            { x:65, y:9,  s:18, d:0.12, r:-15 },
+            { x:80, y:7,  s:22, d:0.08, r:25  },
+            { x:91, y:18, s:15, d:0.20, r:-30 },
+            { x:6,  y:50, s:26, d:0.18, r:10  },
+            { x:14, y:65, s:14, d:0.22, r:-45 },
+            { x:88, y:44, s:22, d:0.10, r:35  },
+            { x:93, y:58, s:16, d:0.25, r:-10 },
+            { x:24, y:82, s:18, d:0.30, r:20  },
+            { x:46, y:90, s:28, d:0.15, r:-25 },
+            { x:63, y:84, s:16, d:0.20, r:40  },
+            { x:78, y:76, s:20, d:0.25, r:-15 },
+            { x:30, y:36, s:12, d:0.05, r:60  },
+            { x:68, y:28, s:14, d:0.08, r:-50 },
+            { x:55, y:67, s:18, d:0.12, r:30  },
+            { x:38, y:72, s:10, d:0.18, r:-40 },
+            { x:72, y:50, s:24, d:0.06, r:20  },
+            { x:42, y:20, s:12, d:0.14, r:-35 },
+          ].map((p, i) => (
+            <svg
+              key={i}
+              className="diamond-burst-item"
+              style={{
+                left: `${p.x}%`,
+                top: `${p.y}%`,
+                width: p.s,
+                height: p.s,
+                animationDelay: `${p.d}s`,
+                '--rot': `${p.r}deg`,
+              } as React.CSSProperties}
+              viewBox="0 0 51.192 53"
+              fill="none"
+            >
+              <path d={StarPath} fill="#e0dfd5" stroke="#e0dfd5" strokeWidth="1.5" />
+            </svg>
+          ))}
+        </div>
+      )}
+
+      {/* ══════════════ ORDER RECEIPT ══════════════ */}
+      {showOrderReceipt && lastOrder && (
+        <div className={`receipt-overlay${receiptFoldPhase === 4 ? ' closing' : ''}`} onClick={handleCloseReceipt}>
+          <div className={`receipt-modal${receiptFoldPhase >= 1 ? ' is-folding' : ''}${receiptFoldPhase === 4 ? ' fly-out' : ''}${disableBounce ? ' no-bounce' : ''}`} onClick={e => e.stopPropagation()}>
+
+            {/* ── FOLD PANELS (cover receipt during fold) ── */}
+            {receiptFoldPhase >= 1 && (
+              <div className="receipt-fold-wrapper">
+                {/* top half: 01 stays, 02 folds onto 01 */}
+                <div className="fold-half fold-half-top">
+                  <div className="fold-quad fold-quad-l" />
+                  <div className={`fold-quad fold-quad-r${receiptFoldPhase >= 2 ? ' fold-active' : ''}`} />
+                </div>
+                {/* bottom half: 03 stays, 04 folds onto 03; then entire half folds onto top */}
+                <div className={`fold-half fold-half-bottom${receiptFoldPhase >= 3 ? ' fold-active' : ''}`}>
+                  <div className="fold-quad fold-quad-l" />
+                  <div className={`fold-quad fold-quad-r${receiptFoldPhase >= 2 ? ' fold-active' : ''}`} />
+                </div>
+              </div>
+            )}
+
+            <div className={`receipt-content-layer fold-phase-${receiptFoldPhase}`}>
+              <button className="receipt-close" onClick={handleCloseReceipt}>✕</button>
+
+              <div className="receipt-header">
+                <div className="receipt-logo">Timberwood</div>
+                <div className="receipt-tagline">— Fine Dining —</div>
+              </div>
+
+              <div className="receipt-divider-dots" />
+
+              <div className="receipt-meta">
+                <div className="receipt-meta-row">
+                  <span>ORDER IN QUEUE</span>
+                  <span className="receipt-queue">#{String(lastOrder.queueNum).padStart(3, '0')}</span>
+                </div>
+                <div className="receipt-meta-row">
+                  <span>EST. WAIT TIME</span>
+                  <span>{lastOrder.estMins}–{lastOrder.estMins + 5} MIN</span>
+                </div>
+              </div>
+
+              <div className="receipt-divider-dots" />
+
+              <div className="receipt-items-header">
+                <span>ITEM</span>
+                <span>QTY</span>
+                <span>PRICE</span>
+              </div>
+              <div className="receipt-divider-solid" />
+              <ul className="receipt-items">
+                {lastOrder.items.map(g => (
+                  <li key={g.name} className="receipt-item">
+                    <span className="receipt-item-name">{g.name}</span>
+                    <span className="receipt-item-qty">×{g.count}</span>
+                    <span className="receipt-item-price">${(parseFloat(g.price) * g.count).toFixed(2)}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="receipt-divider-solid" />
+
+              <div className="receipt-totals">
+                <div className="receipt-totals-row">
+                  <span>Subtotal</span>
+                  <span>${lastOrder.subtotal.toFixed(2)}</span>
+                </div>
+                <div className="receipt-totals-row">
+                  <span>GST (9%)</span>
+                  <span>${lastOrder.tax.toFixed(2)}</span>
+                </div>
+                <div className="receipt-divider-solid" />
+                <div className="receipt-totals-row total">
+                  <span>TOTAL</span>
+                  <span>${lastOrder.total.toFixed(2)}</span>
+                </div>
+              </div>
+
+              <div className="receipt-divider-dots" />
+
+              <div className="receipt-thankyou">
+                <div className="receipt-thankyou-title">Thank you for your order!</div>
+                <p>Please wait while we prepare your food.</p>
+                <p className="receipt-enjoy">Enjoy your meal ✦</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════ MINI RECEIPT CHIP ══════════════ */}
+      {showMiniReceipt && lastOrder && !showOrderReceipt && (
+        <div 
+          className="mini-receipt" 
+          onClick={e => {
+            e.stopPropagation()
+            setDisableBounce(true)
+            setReceiptFoldPhase(4) // Start fully folded/flown out
+            setShowOrderReceipt(true) // Mount modal
+            // Allow 1 frame to mount at Phase 4, then trigger reverse CSS transitions
+            setTimeout(() => {
+              setReceiptFoldPhase(3) // Un-fly
+              setTimeout(() => setReceiptFoldPhase(2), 440) // Unfold bottom half
+              setTimeout(() => setReceiptFoldPhase(1), 700) // Unfold right half
+              setTimeout(() => setReceiptFoldPhase(0), 950) // Fold completes
+            }, 20)
+          }}
+        >
+          <div className="mini-receipt-inner">
+            <div className="mini-receipt-top">
+              <span className="mini-receipt-logo">Timberwood</span>
+              <button
+                className="mini-receipt-dismiss"
+                onClick={e => { e.stopPropagation(); setShowMiniReceipt(false) }}
+              >✕</button>
+            </div>
+            <div className="mini-receipt-queue">Order #{String(lastOrder.queueNum).padStart(3, '0')}</div>
+            <div className="mini-receipt-total">${lastOrder.total.toFixed(2)} <span>incl. GST</span></div>
+            <div className="mini-receipt-hint">Tap to view receipt</div>
+          </div>
         </div>
       )}
     </>
