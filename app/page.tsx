@@ -1,6 +1,39 @@
 'use client'
 import Script from 'next/script'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+
+/* ─── PayNow QR placeholder ─── */
+const QR_GRID = (() => {
+  const N = 21
+  return Array.from({ length: N }, (_, r) =>
+    Array.from({ length: N }, (_, c) => {
+      const inTL = r < 7 && c < 7
+      const inTR = r < 7 && c >= N - 7
+      const inBL = r >= N - 7 && c < 7
+      if (inTL || inTR || inBL) {
+        const lr = inBL ? r - (N - 7) : r
+        const lc = inTR ? c - (N - 7) : c
+        return lr === 0 || lr === 6 || lc === 0 || lc === 6 || (lr >= 2 && lr <= 4 && lc >= 2 && lc <= 4)
+      }
+      if (r === 6 || c === 6) return (r + c) % 2 === 0
+      if (r === 8 && c === N - 8) return true
+      const h = ((r * 31 + c * 17 + r * c * 7) * 2654435761) >>> 0
+      return h % 3 !== 0
+    })
+  )
+})()
+
+const PayNowQR = () => {
+  const S = 7
+  return (
+    <svg width={21 * S} height={21 * S} viewBox={`0 0 ${21 * S} ${21 * S}`} style={{ display: 'block' }}>
+      <rect width={21 * S} height={21 * S} fill="#faf5e8" />
+      {QR_GRID.map((row, r) => row.map((dark, c) =>
+        dark ? <rect key={`${r}-${c}`} x={c * S} y={r * S} width={S} height={S} fill="#1a1208" /> : null
+      ))}
+    </svg>
+  )
+}
 
 /* ─── SVG primitives ─── */
 const StarPath = "M 0 26.501 C 8.518 26.501 25.554 26.501 25.554 0 C 25.554 25.554 42.674 26.499 51.192 26.499 C 42.674 26.499 25.554 26.499 25.554 53 C 25.554 27.446 8.518 26.501 0 26.501 Z"
@@ -491,12 +524,18 @@ export default function Home() {
 
   const [orderFly, setOrderFly] = useState<{ x: number; y: number } | null>(null)
   const [logoPopping, setLogoPopping] = useState(false)
-  const [orderItems, setOrderItems] = useState<{ name: string; price: string }[]>([])
+  const [orderItems, setOrderItems] = useState<{ id: string; name: string; price: string; note?: string }[]>([])
+  const [noteModalOpen, setNoteModalOpen] = useState(false)
+  const [noteEditingId, setNoteEditingId] = useState<string | null>(null)
+  const [noteText, setNoteText] = useState('')
   const [orderOpen, setOrderOpen] = useState(false)
   const [showDiamondBurst, setShowDiamondBurst] = useState(false)
+  const [showInvoice, setShowInvoice] = useState(false)
+  const [closingInvoice, setClosingInvoice] = useState(false)
+  const [selectedPayment, setSelectedPayment] = useState<'qr'|'card'|'cashier'|null>(null)
   const [showOrderReceipt, setShowOrderReceipt] = useState(false)
   const [receiptFoldPhase, setReceiptFoldPhase] = useState<0|1|2|3|4>(0)
-  const [lastOrder, setLastOrder] = useState<{ items: { name: string; price: string; count: number }[]; queueNum: number; estMins: number; subtotal: number; tax: number; total: number } | null>(null)
+  const [lastOrder, setLastOrder] = useState<{ items: { name: string; price: string; count: number; note?: string }[]; queueNum: number; estMins: number; subtotal: number; tax: number; total: number } | null>(null)
   const [showMiniReceipt, setShowMiniReceipt] = useState(false)
   const [disableBounce, setDisableBounce] = useState(false)
   const navLogoRef = useRef<HTMLDivElement>(null)
@@ -510,7 +549,7 @@ export default function Home() {
     const lr = logo.getBoundingClientRect()
     setOrderFly({ x: br.left + br.width / 2, y: br.top + br.height / 2 })
     if (selectedDish) {
-      setOrderItems(prev => [...prev, { name: selectedDish.name, price: selectedDish.price || '0' }])
+      setOrderItems(prev => [...prev, { id: Math.random().toString(36).substring(2, 11), name: selectedDish.name, price: selectedDish.price || '0' }])
     }
     closeDrawer()
     setTimeout(() => {
@@ -533,19 +572,29 @@ export default function Home() {
   function handleProceedToOrder(e: React.MouseEvent) {
     e.preventDefault()
     const num = Math.floor(Math.random() * 20) + 1
-    const items = groupedOrder.map(g => ({ name: g.name, price: g.price, count: g.count }))
+    const items = groupedOrder.map(g => ({ name: g.name, price: g.price, count: g.count, note: g.note }))
     const subtotal = items.reduce((s, g) => s + parseFloat(g.price) * g.count, 0)
     const tax = subtotal * 0.09
     const total = subtotal + tax
     const estMins = Math.max(15, items.length * 5 + 10)
     setLastOrder({ items, queueNum: num, estMins, subtotal, tax, total })
     setOrderItems([])
-    setDisableBounce(false)
+    setSelectedPayment(null)
     setShowDiamondBurst(true)
-    setShowOrderReceipt(true)
-    setShowMiniReceipt(true)
+    setShowInvoice(true)
     setOrderOpen(false)
     setTimeout(() => setShowDiamondBurst(false), 2200)
+  }
+
+  function handleConfirmPayment() {
+    if (!selectedPayment) return
+    setClosingInvoice(true)
+    setTimeout(() => {
+      setShowInvoice(false)
+      setClosingInvoice(false)
+      setShowOrderReceipt(true)
+      setShowMiniReceipt(true)
+    }, 420)
   }
 
   function handleCloseReceipt() {
@@ -557,13 +606,26 @@ export default function Home() {
     setTimeout(() => { setShowOrderReceipt(false); setReceiptFoldPhase(0) }, 1010)
   }
 
-  // Group order items by name for display
-  const groupedOrder = orderItems.reduce<{ name: string; price: string; count: number; indices: number[] }[]>((acc, item, idx) => {
-    const existing = acc.find(g => g.name === item.name)
-    if (existing) { existing.count++; existing.indices.push(idx) }
-    else acc.push({ name: item.name, price: item.price, count: 1, indices: [idx] })
+  // Group order items by name and note for display
+  const groupedOrder = orderItems.reduce<{ id: string; name: string; price: string; count: number; note?: string; indices: number[]; idList: string[] }>((acc, item, idx) => {
+    const existing = acc.find(g => g.name === item.name && g.note === item.note)
+    if (existing) { existing.count++; existing.indices.push(idx); existing.idList.push(item.id) }
+    else acc.push({ id: item.id, name: item.name, price: item.price, count: 1, note: item.note, indices: [idx], idList: [item.id] })
     return acc
   }, [])
+
+  function openNoteModal(id: string, note: string | undefined) {
+    setNoteEditingId(id)
+    setNoteText(note || '')
+    setNoteModalOpen(true)
+  }
+
+  function saveNote() {
+    if (noteEditingId) {
+      setOrderItems(prev => prev.map(item => item.id === noteEditingId ? { ...item, note: noteText } : item))
+    }
+    setNoteModalOpen(false)
+  }
 
   const trackRef = useRef<HTMLDivElement>(null)
   const searchBarRef = useRef<HTMLDivElement>(null)
@@ -595,7 +657,7 @@ export default function Home() {
 
   // Splash timer
   useEffect(() => {
-    const t = setTimeout(() => setSplashDone(true), 3000)
+    const t = setTimeout(() => setSplashDone(true), 4800)
     return () => clearTimeout(t)
   }, [])
 
@@ -722,18 +784,41 @@ export default function Home() {
         }
       }} />
       {/* ══════════════ SPLASH ══════════════ */}
-      {!splashDone && (
-        <div className="splash">
-          <span className="splash-logo">Timberwood</span>
-          <div className="splash-progress-wrap">
-            <StarLg style={{ width: 14, height: 14, flexShrink: 0 }} />
-            <div className="splash-progress-track">
-              <div className="splash-progress-fill" />
+      {!splashDone && (() => {
+        const SplashInner = ({ shiftClass }: { shiftClass: string }) => (
+          <div className={`splash-content-full ${shiftClass}`}>
+            <div className="splash-border">
+              <div className="splash-corner tl"><StarSm /></div>
+              <div className="splash-corner tr"><StarSm /></div>
+              <div className="splash-corner bl"><StarSm /></div>
+              <div className="splash-corner br"><StarSm /></div>
             </div>
-            <StarLg style={{ width: 14, height: 14, flexShrink: 0 }} />
+            <span className="splash-logo">Timberwood</span>
+            <div className="splash-progress-wrap">
+              <StarLg style={{ width: 14, height: 14, flexShrink: 0 }} />
+              <div className="splash-progress-track">
+                <div className="splash-progress-fill" />
+              </div>
+              <StarLg style={{ width: 14, height: 14, flexShrink: 0 }} />
+            </div>
           </div>
-        </div>
-      )}
+        )
+        return (
+          <div className="splash-book">
+            <div className="splash-page splash-left">
+              <div className="splash-half-inner left-side">
+                <SplashInner shiftClass="left-shift" />
+              </div>
+            </div>
+            <div className="splash-page splash-right">
+              <div className="splash-half-inner right-side">
+                <SplashInner shiftClass="right-shift" />
+              </div>
+              <div className="splash-back" />
+            </div>
+          </div>
+        )
+      })()}
 
       {/* ══════════════ NAVBAR ══════════════ */}
       <nav className="navbar">
@@ -805,7 +890,7 @@ export default function Home() {
 
             <div
               ref={heroImgRef}
-              className="hero-image-wrap fade-right"
+              className="hero-image-wrap"
               style={{
                 transitionDelay: '.15s',
                 transform: `perspective(1200px) rotateX(${heroTilt.rx}deg) rotateY(${heroTilt.ry}deg)`,
@@ -1245,17 +1330,25 @@ export default function Home() {
         ) : (
           <ul className="order-panel-list">
             {groupedOrder.map((group) => (
-              <li key={group.name} className="order-panel-item">
-                <span className="order-panel-item-bullet">·</span>
-                <span className="order-panel-item-text">{group.name}</span>
-                {group.count > 1 && (
-                  <span className="order-panel-item-qty">×{group.count}</span>
-                )}
-                <button
-                  className="order-panel-remove"
-                  onClick={() => removeOrderItem(group.indices[group.indices.length - 1])}
-                  title="Remove one"
-                >✕</button>
+              <li key={group.name + (group.note || '')} className="order-panel-item-wrap">
+                <div className="order-panel-item">
+                  <span className="order-panel-item-bullet">·</span>
+                  <span className="order-panel-item-text">{group.name}</span>
+                  {group.count > 1 && (
+                    <span className="order-panel-item-qty">×{group.count}</span>
+                  )}
+                  <button
+                    className="order-panel-remove"
+                    onClick={() => removeOrderItem(group.indices[group.indices.length - 1])}
+                    title="Remove one"
+                  >✕</button>
+                </div>
+                <div className="order-panel-note-action">
+                  <button className="note-action-link" onClick={() => openNoteModal(group.idList[0], group.note)}>
+                    {group.note ? 'Edit Note' : '+ Add Note'}
+                  </button>
+                </div>
+                {group.note && <div className="order-panel-note-text">{group.note}</div>}
               </li>
             ))}
           </ul>
@@ -1266,6 +1359,29 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* ══════════════ NOTE MODAL ══════════════ */}
+      {noteModalOpen && (
+        <div className="note-modal-overlay" onClick={() => setNoteModalOpen(false)}>
+          <div className="note-modal" onClick={e => e.stopPropagation()}>
+            <div className="note-modal-header">
+              <span>Add a Note</span>
+              <button onClick={() => setNoteModalOpen(false)}>✕</button>
+            </div>
+            <textarea
+              className="note-textarea"
+              maxLength={200}
+              placeholder="E.g. No spicy, extra sauce..."
+              value={noteText}
+              onChange={e => setNoteText(e.target.value)}
+            />
+            <div className="note-modal-footer">
+              <span className="note-char-count">{noteText.length}/200</span>
+              <button className="note-save-btn" onClick={saveNote}>Save Note</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ══════════════ ORDER FLY PAPER ══════════════ */}
       {orderFly && (
@@ -1326,6 +1442,147 @@ export default function Home() {
         </div>
       )}
 
+      {/* ══════════════ INVOICE ══════════════ */}
+      {showInvoice && lastOrder && (() => {
+        const invoiceNum = `INV-${String(lastOrder.queueNum).padStart(4, '0')}`
+        const today = new Date().toLocaleDateString('en-SG', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()
+        return (
+          <div className={`invoice-overlay${closingInvoice ? ' closing' : ''}`}>
+            <div className="invoice-printer-wrap">
+
+              {/* ── printer machine body ── */}
+              <div className="printer-body">
+                <div className="printer-vent">
+                  {[...Array(5)].map((_, i) => <div key={i} className="printer-vent-slot" />)}
+                </div>
+                <div className="printer-center">
+                  <div className="printer-light" />
+                  <span className="printer-label">TIMBERWOOD POS</span>
+                  <div className="printer-light" style={{ animationDelay: '0.55s' }} />
+                </div>
+                <div className="printer-btn" />
+              </div>
+              <div className="printer-slot-bar" />
+
+              {/* ── paper rolls out ── */}
+              <div className="invoice-paper" data-lenis-prevent>
+                <div className="print-scan-line" />
+
+                <div className="invoice-content">
+                  {/* header */}
+                  <div className="inv-header">
+                    <div className="inv-ornament">✦ ─────────────────── ✦</div>
+                    <div className="inv-restaurant">Timberwood</div>
+                    <div className="inv-subtitle">FINE DINING ESTABLISHMENT</div>
+                    <div className="inv-ornament">✦ ─────────────────── ✦</div>
+                  </div>
+
+                  {/* meta */}
+                  <div className="inv-meta">
+                    <div className="inv-meta-row"><span>INVOICE NO.</span><span>{invoiceNum}</span></div>
+                    <div className="inv-meta-row"><span>DATE</span><span>{today}</span></div>
+                    <div className="inv-meta-row"><span>TABLE</span><span>WALK-IN</span></div>
+                  </div>
+
+                  <div className="inv-rule">{'- '.repeat(26)}</div>
+
+                  {/* items */}
+                  <div className="inv-items-head">
+                    <span>DESCRIPTION</span><span>QTY</span><span>AMT</span>
+                  </div>
+                  <div className="inv-rule-thin" />
+                  {lastOrder.items.map((g, idx) => (
+                    <React.Fragment key={idx}>
+                      <div className="inv-item">
+                        <span className="inv-item-name">{g.name.toUpperCase()}</span>
+                        <span className="inv-item-qty">×{g.count}</span>
+                        <span className="inv-item-price">${(parseFloat(g.price) * g.count).toFixed(2)}</span>
+                      </div>
+                      {g.note && <div className="inv-item-note" style={{marginTop: -4, fontSize: '10px', fontStyle: 'italic', marginBottom: 4}}>{g.note}</div>}
+                    </React.Fragment>
+                  ))}
+                  <div className="inv-rule-thin" />
+
+                  {/* totals */}
+                  <div className="inv-totals">
+                    <div className="inv-total-row"><span>SUB-TOTAL</span><span>${lastOrder.subtotal.toFixed(2)}</span></div>
+                    <div className="inv-total-row"><span>GST (9%)</span><span>${lastOrder.tax.toFixed(2)}</span></div>
+                  </div>
+                  <div className="inv-rule">{'= '.repeat(26)}</div>
+                  <div className="inv-grand-total">
+                    <span>TOTAL DUE</span><span>${lastOrder.total.toFixed(2)}</span>
+                  </div>
+                  <div className="inv-rule">{'= '.repeat(26)}</div>
+
+                  {/* payment */}
+                  <div className="inv-pay-title">SELECT PAYMENT METHOD:</div>
+
+                  <div className="inv-pay-options">
+                    {([
+                      { id: 'qr',      label: 'PAYNOW / NETS QR',     sub: 'Scan to pay instantly' },
+                      { id: 'card',    label: 'CREDIT / DEBIT CARD',   sub: 'Visa · Mastercard · AMEX' },
+                      { id: 'cashier', label: 'PAY AT CASHIER',        sub: 'Bring this invoice' },
+                    ] as const).map(opt => (
+                      <button
+                        key={opt.id}
+                        className={`inv-pay-option${selectedPayment === opt.id ? ' selected' : ''}`}
+                        onClick={() => setSelectedPayment(opt.id)}
+                      >
+                        <span className="inv-radio">{selectedPayment === opt.id ? '[X]' : '[ ]'}</span>
+                        <span className="inv-pay-label">
+                          <span>{opt.label}</span>
+                          <span className="inv-pay-sub">{opt.sub}</span>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* QR / card detail panel */}
+                  {selectedPayment === 'qr' && (
+                    <div className="inv-qr-wrap">
+                      <PayNowQR />
+                      <div className="inv-qr-labels">
+                        <div className="inv-qr-accepted">PayNow · NETS · GrabPay · PayLah!</div>
+                        <div className="inv-qr-amount">SGD {lastOrder.total.toFixed(2)}</div>
+                        <div className="inv-qr-note">Show screenshot to staff after payment</div>
+                      </div>
+                    </div>
+                  )}
+                  {selectedPayment === 'card' && (
+                    <div className="inv-card-note">
+                      <div className="inv-card-icons">VISA · MC · AMEX · NETS</div>
+                      <div>Our staff will bring the card reader</div>
+                      <div>to your table shortly.</div>
+                    </div>
+                  )}
+                  {selectedPayment === 'cashier' && (
+                    <div className="inv-card-note">
+                      <div>Please proceed to the cashier counter</div>
+                      <div>and present this invoice.</div>
+                    </div>
+                  )}
+
+                  <button
+                    className={`inv-confirm${selectedPayment ? ' ready' : ''}`}
+                    onClick={handleConfirmPayment}
+                    disabled={!selectedPayment}
+                  >
+                    {selectedPayment ? 'CONFIRM PAYMENT  →' : 'SELECT A METHOD ABOVE'}
+                  </button>
+
+                  <div className="inv-rule">{'- '.repeat(26)}</div>
+                  <div className="inv-footer">
+                    <div>Thank you for dining with us.</div>
+                    <div>Please retain this invoice.</div>
+                    <div className="inv-footer-ornament">✦</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      })()}
+
       {/* ══════════════ ORDER RECEIPT ══════════════ */}
       {showOrderReceipt && lastOrder && (
         <div className={`receipt-overlay${receiptFoldPhase === 4 ? ' closing' : ''}`} onClick={handleCloseReceipt}>
@@ -1377,12 +1634,15 @@ export default function Home() {
               </div>
               <div className="receipt-divider-solid" />
               <ul className="receipt-items">
-                {lastOrder.items.map(g => (
-                  <li key={g.name} className="receipt-item">
-                    <span className="receipt-item-name">{g.name}</span>
-                    <span className="receipt-item-qty">×{g.count}</span>
-                    <span className="receipt-item-price">${(parseFloat(g.price) * g.count).toFixed(2)}</span>
-                  </li>
+                {lastOrder.items.map((g, idx) => (
+                  <React.Fragment key={idx}>
+                    <li className="receipt-item">
+                      <span className="receipt-item-name">{g.name}</span>
+                      <span className="receipt-item-qty">×{g.count}</span>
+                      <span className="receipt-item-price">${(parseFloat(g.price) * g.count).toFixed(2)}</span>
+                    </li>
+                    {g.note && <li className="receipt-item receipt-item-note" style={{marginTop: -4, fontSize: '0.85em', opacity: 0.8, fontStyle: 'italic', paddingLeft: 12}}>{g.note}</li>}
+                  </React.Fragment>
                 ))}
               </ul>
               <div className="receipt-divider-solid" />
