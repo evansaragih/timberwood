@@ -607,7 +607,7 @@ export default function Home() {
   }
 
   // Group order items by name and note for display
-  const groupedOrder = orderItems.reduce<{ id: string; name: string; price: string; count: number; note?: string; indices: number[]; idList: string[] }>((acc, item, idx) => {
+  const groupedOrder = orderItems.reduce<{ id: string; name: string; price: string; count: number; note?: string; indices: number[]; idList: string[] }[]>((acc, item, idx) => {
     const existing = acc.find(g => g.name === item.name && g.note === item.note)
     if (existing) { existing.count++; existing.indices.push(idx); existing.idList.push(item.id) }
     else acc.push({ id: item.id, name: item.name, price: item.price, count: 1, note: item.note, indices: [idx], idList: [item.id] })
